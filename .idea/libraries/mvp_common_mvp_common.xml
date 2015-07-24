@@ -4,6 +4,8 @@
       <root url="jar://$PROJECT_DIR$/mvp-common/build/libs/mvp-common.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/mvp-common/build/libs/mvp-common-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

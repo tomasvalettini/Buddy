@@ -1,9 +1,10 @@
 package com.durdlelabs.buddy.asynctasks;
+/*
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-import com.durdlelabs.buddy.presenter.MainPresenter;
+import com.durdlelabs.buddy.presenters.MainPresenter;
 
 public class DeleteContactsAsyncTask extends AsyncTask<Void, Void, Void> {
     private MainPresenter mainPresenter;
@@ -37,3 +38,4 @@ public class DeleteContactsAsyncTask extends AsyncTask<Void, Void, Void> {
         progressDialog.dismiss();
     }
 }
+*/

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="testing.testing-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/testing/build/libs/testing-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

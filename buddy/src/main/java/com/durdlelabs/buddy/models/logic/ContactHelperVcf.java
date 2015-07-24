@@ -1,4 +1,4 @@
-package com.durdlelabs.buddy.model.logic;
+package com.durdlelabs.buddy.models.logic;
 
 import android.content.ContentResolver;
 import android.content.res.AssetFileDescriptor;
@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
-import com.durdlelabs.buddy.model.data.Contact;
+import com.durdlelabs.buddy.models.data.Contact;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -53,9 +53,7 @@ public class ContactHelperVcf extends ContactHelper {
         }
 
         cur.close();
-
         vcfString = sb.toString();
-
         return new ArrayList<>();
     }
 

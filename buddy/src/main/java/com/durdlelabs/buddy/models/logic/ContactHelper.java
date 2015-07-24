@@ -1,4 +1,4 @@
-package com.durdlelabs.buddy.model.logic;
+package com.durdlelabs.buddy.models.logic;
 
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
@@ -10,7 +10,7 @@ import android.os.RemoteException;
 import android.provider.ContactsContract;
 import android.util.Log;
 
-import com.durdlelabs.buddy.model.data.Contact;
+import com.durdlelabs.buddy.models.data.Contact;
 
 import java.util.ArrayList;
 import java.util.Collections;

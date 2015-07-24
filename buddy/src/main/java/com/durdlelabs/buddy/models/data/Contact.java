@@ -1,4 +1,4 @@
-package com.durdlelabs.buddy.model.data;
+package com.durdlelabs.buddy.models.data;
 
 public class Contact {
     private String id;

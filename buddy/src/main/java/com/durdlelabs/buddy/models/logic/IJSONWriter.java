@@ -1,6 +1,6 @@
-package com.durdlelabs.buddy.model.logic;
+package com.durdlelabs.buddy.models.logic;
 
-import com.durdlelabs.buddy.model.data.Contact;
+import com.durdlelabs.buddy.models.data.Contact;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.durdlelabs.buddy.model.logic;
+package com.durdlelabs.buddy.models.logic;
 
 import android.content.Context;
 import android.os.Environment;

@@ -1,4 +1,5 @@
 package com.durdlelabs.buddy.asynctasks;
+/*
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -37,4 +38,4 @@ public class BackupContactsAsyncTask extends AsyncTask<Void, Void, Void> {
 
         ((MainMenuActivity) mainMenuPresenter.getActivity()).shareContacts();
     }
-}
+}*/

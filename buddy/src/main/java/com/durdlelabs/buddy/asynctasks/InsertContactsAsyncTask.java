@@ -1,4 +1,5 @@
 package com.durdlelabs.buddy.asynctasks;
+/*
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -36,4 +37,4 @@ public class InsertContactsAsyncTask extends AsyncTask<Void, Void, Void> {
         Toast.makeText(mainMenuPresenter.getActivity(), "Restoration Complete!", Toast.LENGTH_SHORT).show();
         progressDialog.dismiss();
     }
-}
+}*/

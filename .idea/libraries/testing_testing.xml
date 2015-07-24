@@ -4,6 +4,8 @@
       <root url="jar://$PROJECT_DIR$/testing/build/libs/testing.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/testing/build/libs/testing-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

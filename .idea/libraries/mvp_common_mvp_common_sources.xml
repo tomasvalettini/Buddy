@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mvp-common.mvp-common-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mvp-common/build/libs/mvp-common-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
