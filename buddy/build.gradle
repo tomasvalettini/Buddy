@@ -42,7 +42,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:22.2.1'
     compile project(':core')
     compile project(':core-dagger1')
     compile project(':mvp')
@@ -53,4 +52,5 @@ dependencies {
     compile project(':testing')
     compile project(':viewstate')
     compile project(':viewstate-dagger1')
+    compile 'com.android.support:appcompat-v7:22.2.0'
 }
