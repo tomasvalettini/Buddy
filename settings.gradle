@@ -1,0 +1,3 @@
+include ':sample', ':core', ':core-dagger1', ':viewstate', ':mvp', ':rx', ':retrofit', ':buddy',
+    ':mvp-dagger1', ':viewstate-dagger1', ':sample-dagger1', ':sample-dagger2-rx', ':sample-mail',
+    ':testing', ':mvp-common'

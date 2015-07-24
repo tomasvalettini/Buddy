@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="item_list_unselected">#FFFFFF</color>
+    <color name="item_list_selected">#ff3ca0c3</color>
+    <color name="contact_letter_background">#FF8409</color>
+    <drawable name="item_pressed">#ffa74e00</drawable>
+    <drawable name="item_default">#FF8409</drawable>
+</resources>
