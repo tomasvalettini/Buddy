@@ -1,20 +1,18 @@
 package com.durdlelabs.buddy.asynctasks;
-/*
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-import com.durdlelabs.buddy.MainMenuActivity;
-import com.durdlelabs.buddy.presenter.MainMenuPresenter;
+import com.durdlelabs.buddy.MainActivity;
 
 public class BackupContactsAsyncTask extends AsyncTask<Void, Void, Void> {
-    private MainMenuPresenter mainMenuPresenter;
+    private MainActivity mainActivity;
     private String title;
     private String message;
     private ProgressDialog progressDialog;
 
-    public BackupContactsAsyncTask(MainMenuPresenter mmp, String title, String message) {
-        this.mainMenuPresenter = mmp;
+    public BackupContactsAsyncTask(MainActivity ma, String title, String message) {
+        this.mainActivity = ma;
         this.title = title;
         this.message = message;
     }
@@ -22,13 +20,13 @@ public class BackupContactsAsyncTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog = ProgressDialog.show(mainMenuPresenter.getActivity(), title, message, true);
+        progressDialog = ProgressDialog.show(mainActivity, title, message, true);
     }
 
     //this method updates shit in the background. If you want to update the "View", do it in onPostExecute :)
     @Override
     protected Void doInBackground(Void... params) {
-        mainMenuPresenter.backupContacts(mainMenuPresenter.getActivity().getApplicationContext());
+        mainActivity.getPresenter().backupContacts(mainActivity.getApplicationContext());
         return null;
     }
 
@@ -36,6 +34,6 @@ public class BackupContactsAsyncTask extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void a) {
         progressDialog.dismiss();
 
-        ((MainMenuActivity) mainMenuPresenter.getActivity()).shareContacts();
+        mainActivity.shareContacts();
     }
-}*/
+}
