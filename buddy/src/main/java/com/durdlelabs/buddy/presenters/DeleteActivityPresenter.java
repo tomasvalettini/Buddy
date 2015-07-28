@@ -25,4 +25,20 @@ public class DeleteActivityPresenter extends MvpBasePresenter<IDeleteActivityVie
     public List<Contact> getContacts() {
         return ch.getContacts();
     }
+
+    public void deleteContacts(List<Contact> cons) {
+        ch.deleteContacts(cons);
+    }
+
+    public List<Contact> getSelectedContacts() {
+        return getView().getSelectedContacts();
+    }
+
+    public void refreshContacts() {
+        ch.readContacts();
+    }
+
+    public void updateContactList() {
+        getView().updateContactList();
+    }
 }

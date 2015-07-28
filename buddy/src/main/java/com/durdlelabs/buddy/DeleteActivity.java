@@ -1,5 +1,7 @@
 package com.durdlelabs.buddy;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Menu;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.durdlelabs.buddy.adapters.ContactsAdapter;
+import com.durdlelabs.buddy.asynctasks.DeleteContactsAsyncTask;
 import com.durdlelabs.buddy.models.data.Contact;
 import com.durdlelabs.buddy.presenters.DeleteActivityPresenter;
 import com.durdlelabs.buddy.views.IDeleteActivityView;
@@ -22,7 +25,7 @@ import butterknife.Bind;
 public class DeleteActivity extends MvpActivity<IDeleteActivityView, DeleteActivityPresenter>
         implements IDeleteActivityView {
     @Bind(R.id.main_activity_listview)
-    private ListView listView;
+    ListView listView;
     private ContactsAdapter cAdapter = null;
     private boolean selectAll = true;
     private MenuItem mi;
@@ -47,6 +50,34 @@ public class DeleteActivity extends MvpActivity<IDeleteActivityView, DeleteActiv
         getMenuInflater().inflate(R.menu.menu_main, menu);
         mi = menu.findItem(R.id.action_delete);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_select_all:
+                selectAllContacts();
+                return true;
+            case R.id.action_delete:
+                final DeleteActivity da = this;
+                new AlertDialog.Builder(this)
+                        .setTitle("Watch out!")
+                        .setMessage("Are you sure you want to delete the selected people?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                DeleteContactsAsyncTask dcat = new DeleteContactsAsyncTask(da, "Please wait...", "Deleting seletcted contacts...");
+                                dcat.execute();
+                                showDelete(false);
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @NonNull
@@ -118,5 +149,30 @@ public class DeleteActivity extends MvpActivity<IDeleteActivityView, DeleteActiv
         }
 
         return selected;
+    }
+
+    private void selectAllContacts() {
+        showSelectedAll();
+    }
+
+    private void showSelectedAll() {
+        if (getSelectedContacts().size() <= 0) {
+            selectAll = true;
+        }
+
+        if (selectAll) {
+            for (int i = 0; i < getContactList().size(); i++) {
+                cAdapter.setSelected(i);
+            }
+        } else {
+            for (int i = 0; i < getContactList().size(); i++) {
+                cAdapter.removeSelected(i);
+            }
+        }
+
+        showDelete(true);
+
+        selectAll = !selectAll;
+        listView.invalidateViews();
     }
 }

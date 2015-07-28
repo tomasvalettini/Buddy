@@ -74,4 +74,15 @@ public class ContactHelperVcf extends ContactHelper {
     public String getVcfString() {
         return vcfString;
     }
+
+    @Override
+    public void prepareRestoration() {
+        Cursor cur = getCr().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+
+        while (cur.moveToNext()) {
+            String lookupKey = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY));
+            Uri uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey);
+            getCr().delete(uri, null, null);
+        }
+    }
 }

@@ -39,7 +39,6 @@ public class ContactHelper implements IContactHelper {
         int num = 0;
 
         if (cur.getCount() > 0) {
-
             while (cur.moveToNext()) {
                 Contact c = new Contact();
                 c.setId(cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID)));
@@ -83,7 +82,7 @@ public class ContactHelper implements IContactHelper {
 
     @Override
     public void deleteContacts(List<Contact> c) {
-        ArrayList ops = new ArrayList<ContentProviderOperation>();
+        ArrayList<ContentProviderOperation> ops = new ArrayList<>();
 
         for (Contact co : c) {
             if (co.isSelected()) {
@@ -141,6 +140,9 @@ public class ContactHelper implements IContactHelper {
             }
         }
     }
+
+    @Override
+    public void prepareRestoration() { }
 
     @Override
     public String getAppDir() {

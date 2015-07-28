@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.durdlelabs.buddy.adapters.MenuItemAdapter;
 import com.durdlelabs.buddy.asynctasks.BackupContactsAsyncTask;
+import com.durdlelabs.buddy.asynctasks.PreparingRestoringAsyncTask;
 import com.durdlelabs.buddy.models.data.CustomMenuItem;
 import com.durdlelabs.buddy.presenters.MainActivityPresenter;
 import com.durdlelabs.buddy.views.IMainActivityView;
@@ -53,6 +54,7 @@ public class MainActivity extends MvpActivity<IMainActivityView, MainActivityPre
         list.add(new CustomMenuItem(R.mipmap.ic_restore, getResources().getString(R.string.menu_restore)));
         list.add(new CustomMenuItem(R.mipmap.ic_delete, getResources().getString(R.string.menu_delete)));
         list.add(new CustomMenuItem(R.mipmap.ic_share, getResources().getString(R.string.menu_share)));
+        list.add(new CustomMenuItem(R.mipmap.ic_restore, "Insert Contacts"));
         return list;
     }
 
@@ -73,6 +75,9 @@ public class MainActivity extends MvpActivity<IMainActivityView, MainActivityPre
                         File file = ma.getPresenter().getAppFile();
 
                         if (file != null) {
+                            PreparingRestoringAsyncTask prat = new PreparingRestoringAsyncTask(ma, "Preparing restoration", "please wait while restoration is preparing :)");
+                            prat.execute();
+
                             Intent intent = new Intent(Intent.ACTION_VIEW);
                             intent.setDataAndType(Uri.fromFile(file), "text/x-vcard"); //storage path is path of your vcf file and vFile is name of that file.
                             startActivity(intent);
@@ -86,6 +91,9 @@ public class MainActivity extends MvpActivity<IMainActivityView, MainActivityPre
                         break;
                     case 3:
                         shareContacts();
+                        break;
+                    case 4: // for testing
+                        presenter.insertContacts();
                         break;
                     default:
                         showToastMsg(getResources().getString(R.string.uh_oh));
